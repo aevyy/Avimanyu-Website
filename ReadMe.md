@@ -1,1 +1,1 @@
-# My first website. GG
+# My first website.
