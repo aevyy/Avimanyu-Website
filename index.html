@@ -10,10 +10,15 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="background-effects">
+        <div class="light-orb orb-1"></div>
+        <div class="light-orb orb-2"></div>
+        <div class="light-orb orb-3"></div>
+    </div>
     <header>
-        <div class="logo">
-            <!-- <img src="assets/images/logo.png" alt="Avimanyu's Logo"> -->
-        </div>
+        <a href="#home" class="logo">
+            <span>AG</span> <!-- Replace "AG" with "Aevy" or your desired logo text -->
+        </a>
         <button class="nav-toggle" aria-label="toggle navigation">
             <span class="hamburger"></span>
         </button>
@@ -281,6 +286,23 @@
             </li>
         </ul>
     </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const particlesContainer = document.createElement('div');
+        particlesContainer.className = 'particles';
+        document.body.appendChild(particlesContainer);
+
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDuration = (Math.random() * 15 + 5) + 's';
+            particle.style.animationDelay = (Math.random() * 5) + 's';
+            particlesContainer.appendChild(particle);
+        }
+    });
+    </script>
 
     <script src="js/index.js"></script>
 </body>

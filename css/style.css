@@ -5,20 +5,29 @@
     padding: 0;
 }
 
-/* Custom Properties */
+/* Updated Custom Properties */
 :root {
     --ff-primary: 'Lora', serif;
     --ff-secondary: 'Roboto Slab', serif;
     --fw-reg: 400;
     --fw-bold: 700;
-    --clr-light: #fff;
-    --clr-dark: #303030;
-    --clr-accent: #16e0bd;
+    --clr-primary: #6d28d9;    /* Deep purple */
+    --clr-secondary: #3b82f6;  /* Bright blue */
+    --clr-accent: #f59e0b;     /* Amber */
+    --clr-background: #1e293b; /* Dark navy */
+    --clr-text: #f8fafc;       /* Light gray */
+    --clr-text-muted: #94a3b8; /* Muted gray */
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
     --fs-h3: 1.25rem;
     --fs-body: 1rem;
-    --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, .25), 0.125em 0.125em 0.25em rgba(0, 0, 0, .15);
+    --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, .25),
+          0.125em 0.125em 0.25em rgba(0, 0, 0, .15);
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
 }
 
 /* Responsive Typography */
@@ -31,118 +40,228 @@
     }
 }
 
-/* Smooth Scroll */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Body Styling with Starry Background */
+/* Enhanced Body Background */
 body {
-    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
-    color: var(--clr-light);
+    background: linear-gradient(135deg, var(--clr-background), #1e293b);
+    color: var(--clr-text);
     margin: 0;
     font-family: var(--ff-primary);
     font-size: var(--fs-body);
     line-height: 1.6;
     overflow-x: hidden;
+    position: relative;
 }
 
-/* Starry Background Animation */
-@keyframes moveStars {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-1000px); }
-}
-
-.stars {
+/* Animated Background Elements */
+.background-effects {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: transparent;
-    z-index: -1;
+    pointer-events: none;
+    z-index: 0;
 }
 
-.stars::after {
-    content: '';
+.light-orb {
     position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+    animation: floatOrb 20s infinite ease-in-out;
+}
+
+.orb-1 {
+    background: var(--clr-primary);
+    width: 400px;
+    height: 400px;
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+}
+
+.orb-2 {
+    background: var(--clr-secondary);
+    width: 300px;
+    height: 300px;
+    top: 50%;
+    right: -50px;
+    animation-delay: -5s;
+}
+
+.orb-3 {
+    background: var(--clr-accent);
+    width: 250px;
+    height: 250px;
+    bottom: -50px;
+    left: 50%;
+    animation-delay: -10s;
+}
+
+@keyframes floatOrb {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(50px, 50px) scale(1.1);
+    }
+    50% {
+        transform: translate(0, 100px) scale(1);
+    }
+    75% {
+        transform: translate(-50px, 50px) scale(0.9);
+    }
+}
+
+/* Floating Particles */
+.particles {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 200%;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="white" /></svg>') repeat;
-    animation: moveStars 100s linear infinite;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
 }
 
-/* Section Cards */
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: moveParticle 15s infinite linear;
+}
+
+@keyframes moveParticle {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(100px);
+        opacity: 0;
+    }
+}
+
+/* Enhanced Section Cards */
 section {
     padding: 5em 2em;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+        0 4px 30px rgba(0, 0, 0, 0.1),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin: 2em auto;
     border-radius: 15px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
     max-width: 1200px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 1;
 }
 
-/* Header */
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 8px 40px rgba(0, 0, 0, 0.15),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Header Styles */
 header {
     display: flex;
-    justify-content: space-between;
-    padding: 1em;
-    background-color: rgba(105, 107, 115, 0.8);
+    justify-content: space-between; /* Space between logo and hamburger */
+    align-items: center; /* Vertically center items */
+    padding: 0.8em;
+    background: rgba(99, 102, 241, 0.1); /* Existing header background */
+    backdrop-filter: blur(10px); /* Existing blur effect */
     position: sticky;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Existing border */
 }
 
+/* Logo Styles */
 .logo {
-    max-width: 100px;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem; /* Adjust size as needed */
+    font-weight: var(--fw-bold);
+    color: var(--clr-text); /* Use the text color from your root variables */
+    margin-left: 1em; /* Add some space from the left edge */
+    text-transform: uppercase; /* Optional: Makes the logo text uppercase */
+    letter-spacing: 2px; /* Optional: Adds spacing between letters */
+    text-decoration: none; /* Remove underline from the link */
+}
+
+.logo span {
+    background: var(--clr-primary); /* Use the primary color for the logo background */
+    color: var(--clr-text); /* Use the text color for the logo text */
+    padding: 0.5em 0.75em; /* Add padding for a badge-like effect */
+    border-radius: 8px; /* Rounded corners for the logo */
+    box-shadow: var(--bs); /* Use the box-shadow from your root variables */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo:hover span {
+    transform: translateY(-2px); /* Add a hover effect */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
 }
 
 /* Navigation */
 .nav {
     position: fixed;
-    background: rgba(105, 107, 115, 0.8);
-    color: var(--clr-accent);
-    top: 60px;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    background: rgba(30, 41, 59, 0.95); /* Solid dark background with slight transparency */
+    color: var(--clr-text);
+    top: 3em; /* Adjusted to be closer to the title */
+    right: 0.5em; /* Adjusted to be closer to the right side */
     z-index: 100;
-    transform: translateX(100%);
+    transform: translateX(100%); /* Initially off-screen */
     transition: transform 444ms cubic-bezier(.5, 0, .5, 1);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); /* Optional: Adds a subtle blur effect */
+    border-radius: 10px; /* Rounded corners for the menu */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    padding: 0.5em; /* Reduced padding to make it more compact */
+    width: 250px; /* Fixed width for the menu */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align links to the left */
 }
 
 .nav__list {
     list-style: none;
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
     margin: 0;
     padding: 0;
+    width: 100%; /* Full width for the list */
 }
 
 .nav__link {
-    color: inherit;
+    color: var(--clr-text);
     font-weight: var(--fw-bold);
-    font-size: var(--fs-h2);
+    font-size: var(--fs-h3);
     text-decoration: none;
+    padding: 0.5em 1em; /* Adjusted padding for better spacing */
+    width: calc(100% - 2em); /* Full width minus padding to prevent overflow */
+    border-radius: 8px; /* Rounded corners for links */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0.25em 0; /* Added margin to separate links */
 }
 
 .nav__link:hover {
-    color: #f4a261;
+    color: var(--clr-accent); /* Accent color on hover */
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
 }
 
 .nav-toggle {
-    padding: .5em;
+    padding: .1em;
     background: transparent;
     border: 0;
     cursor: pointer;
@@ -153,7 +272,7 @@ header {
 }
 
 .nav-open .nav {
-    transform: translateX(0);
+    transform: translateX(0); /* Slide in from the right */
 }
 
 .nav-open .nav-toggle {
@@ -1300,3 +1419,5 @@ header {
 .social-list__link {
     padding: .5em;
 }
+
+/* Stars animations */
