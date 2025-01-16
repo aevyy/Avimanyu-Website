@@ -1,173 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avimanyu Portfolio Website</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" 
-        integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
-
-    <link href="https://fonts.googleapis.com/css?family=
-    Lora:400,700|Roboto+Slab:400,700&display=swap" rel="stylesheet"> 
-    
-    <link rel = "stylesheet" href = "css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Roboto+Slab:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
     <header>
-        <div class = "logo">
-            <img src = "img/logo.png" alt = "Avimanyu's Logo">
+        <div class="logo">
+            <!-- <img src="assets/images/logo.png" alt="Avimanyu's Logo"> -->
         </div>
-
-        <botton class = "nav-toggle" aria-label="toggle navigation">
-            <span class = "hamburger"></span>
-        </botton>
-
-        <nav class = "nav">
-            <ul class = "nav__list">
-                <li class = "nav__item"><a href = "#home" class = "nav__link">Home</a></li>
-                <li class = "nav__item"><a href = "#services" class = "nav__link">My Qualities</a></li>
-                <li class = "nav__item"><a href = "#about" class = "nav__link">About Me</a></li>
-                <li class = "nav__item"><a href = "#work" class = "nav__link">My Works</a></li>
+        <button class="nav-toggle" aria-label="toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+                <li class="nav__item"><a href="#services" class="nav__link">My Qualities</a></li>
+                <li class="nav__item"><a href="#about" class="nav__link">About Me</a></li>
+                <li class="nav__item"><a href="#work" class="nav__link">My Works</a></li>
+                <li class="nav__item"><a href="#projects" class="nav__link">Projects</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Introduction Section -->
-    <section class = "intro" id = "home">
-        <h1 class = "section__title section__title--intro">
-            Hi, I am <strong>Avimanyu Ghimire</strong>
-        </h1>
-        <p class = "section__subtitle section__subtitle--intro">A Physics and Data Enthusiast</p>
-        <img src = "img/avimanyu6.jpg" alt = "Avimanyu's Pic" class = "intro__img">
+    <section class="intro" id="home">
+        <div class="intro-container">
+            <div class="intro-content">
+                <div class="intro-title-wrapper">
+                    <span class="intro-subtitle">Hello, I'm</span>
+                    <h1 class="intro-title">
+                        <span class="name">Avimanyu Ghimire</span>
+                        <span class="title-decorator"></span>
+                    </h1>
+                    <h2 class="intro-role">
+                        <span class="role-prefix">I'm a</span>
+                        <span class="role-main">Data Scientist</span>
+                    </h2>
+                </div>
+                <p class="intro-description">
+                    Transforming complex data into actionable insights through innovative analytics and machine learning solutions.
+                </p>
+                <div class="expertise-wrapper">
+                    <div class="expertise-label">Tech Stack</div>
+                    <div class="expertise-tags">
+                        <div class="tag">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="tag">
+                            <i class="fas fa-brain"></i>
+                            <span>Machine Learning</span>
+                        </div>
+                        <div class="tag">
+                            <i class="fas fa-database"></i>
+                            <span>Data Analytics</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cta-wrapper">
+                    <a href="#work" class="cta-primary">View My Work</a>
+                    <a href="#contact" class="cta-secondary">Get in Touch</a>
+                </div>
+            </div>
+            <div class="intro-visual">
+                <div class="profile-frame">
+                    <img src="assets/images/avimanyu6.jpg" alt="Avimanyu's Portrait" class="profile-image">
+                    <div class="frame-decorator"></div>
+                </div>
+                <div class="floating-elements">
+                    <div class="float-element python">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div class="float-element data">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="float-element analytics">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- My Services Section -->
-     <section class = "my-services" id = "services">
-        <h2 class = "section__title section__title--services">What I am Good at</h2>
-
-        <div class = "services">
-
-            <div class = "service">
+    <section class="my-services" id="services">
+        <h2 class="section__title section__title--services">What I am Good at</h2>
+        <div class="services">
+            <div class="service">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
                 <h3>Data Science and Analytical Skills</h3>
-                <p>I specialize in leveraging data to uncover meaningful patterns and trends.
-                    With proficiency in Python, R, SQL, and other tools, I excel in cleaning,
-                     analyzing, and visualizing data to support informed decision-making. Whether 
-                     it's academic research or practical applications, my work bridges raw data and 
-                     actionable insights.
-                </p>
-            </div>     <!--  / Service1 -->
-            
-
-            <div class = "service">
+                <p>I specialize in leveraging data to uncover meaningful patterns and trends. With proficiency in Python, R, SQL, and other tools, I excel in cleaning, analyzing, and visualizing data to support informed decision-making.</p>
+            </div>
+            <div class="service">
+                <div class="service-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
                 <h3>Problem Solving</h3>
-                <p>Combining my strong drive towards natural science with my growing expertise in 
-                    data science, I approach challenges with creativity and rigor. From theoretical 
-                    explorations to real-world applications, I enjoy developing innovative solutions by 
-                    integrating diverse fields of knowledge.</p>
-            </div>     <!--  / Service2 -->
-
-            <div class = "service">
+                <p>Combining my strong drive towards natural science with my growing expertise in data science, I approach challenges with creativity and rigor. From theoretical explorations to real-world applications, I enjoy developing innovative solutions by integrating diverse fields of knowledge.</p>
+            </div>
+            <div class="service">
+                <div class="service-icon">
+                    <i class="fas fa-users"></i>
+                </div>
                 <h3>Critical Thinking and Collaboration</h3>
-                <p>I thrive in environments that value thoughtful analysis and teamwork. My 
-                    experiences in peer reviews, essay writing, and collaborative projects 
-                    reflect my ability to think deeply, articulate ideas effectively, and 
-                    contribute meaningfully to shared goals. This balance of critical thinking 
-                    and collaboration shapes my academic and professional pursuits.</p>
-            </div>     <!--  / Service3 -->
-
-        </div>   <!--  close services -->
-
-        <a href = "#work" class = "btn">My Work</a>
-
-     </section>
-
-        <!-- About me -->
-
-
-    <section class = "about-me" id = "about">
-        <h2 class="section__title section__title--about">Who I am</h2>
-        <p class = "section__subtitle section__subtitle--about">Just a Curious Learner</p>
-
-        <div class = "about-me__body">
-            <p>I’m Avimanyu Ghimire, a data science undergraduate with a strong interest in 
-                combining analytical thinking and creativity to solve real-world problems. I have 
-                a passion for physics, which fuels my curiosity about how the world works, and a 
-                growing fascination with material psychology, where I explore the intricacies of 
-                common patterns and behaviors.</p>
-            <p>I enjoy working with data, whether it’s retaining them, visualizing trends, or using Python tools like 
-                pandas to bring clarity to complex information. Beyond academics, I value teamwork and communication, as I 
-                believe great ideas come to life when people work together.</p>
-            <p>When I’m not coding or studying, you can find me exploring new concepts in science, reflecting on creative ideas, 
-                or simply enjoying thoughtful conversations.</p>
+                <p>I thrive in environments that value thoughtful analysis and teamwork. My experiences in peer reviews, essay writing, and collaborative projects reflect my ability to think deeply, articulate ideas effectively, and contribute meaningfully to shared goals.</p>
+            </div>
         </div>
-
-        <img src = "img/avimanyu1.jpg" alt = "Avimanyu's Pic" class = "about-me__img"/>
     </section>
 
-    <section class = "my-work" id = "work">
-        <h2 class="section__title section__title--work">My Work</h2>
-        <p class="section__subtitle section__subtitle--work">A selection of my range of works</p>
-        
-        <div class="portfolio">
-            <!-- Portfolio item 01 -->
-            <a href="portfolio-item1.html" class="portfolio__item">
-                <img src="img/portfolio-01.jpg" alt="" class="portfolio__img">
-            </a>
-            
-            <!-- Portfolio item 02 -->
-            <a href="portfolio-item2.html" class="portfolio__item">
-                <img src="img/portfolio-02.jpg" alt="" class="portfolio__img">
-            </a>
-            
-            <!-- Portfolio item 03 -->
-            <a href="portfolio-item3.html" class="portfolio__item">
-                <img src="img/portfolio-03.jpg" alt="" class="portfolio__img">
-            </a>
-            
-            <!-- Portfolio item 04 -->
-            <a href="portfolio-item4.html" class="portfolio__item">
-                <img src="img/portfolio-04.jpg" alt="" class="portfolio__img">
-            </a>
-            
-            <!-- Portfolio item 05 -->
-            <a href="portfolio-item5.html" class="portfolio__item">
-                <img src="img/portfolio-05.jpg" alt="" class="portfolio__img">
-            </a>
-            
-            <!-- Portfolio item 06 -->
-            <a href="portfolio-item.html" class="portfolio__item">
-                <img src="img/portfolio-06.jpg" alt="" class="portfolio__img">
-            </a>
-            
-            <!-- Portfolio item 07 -->
-            <a href="portfolio-item.html" class="portfolio__item">
-                <img src="img/portfolio-07.jpg" alt="" class="portfolio__img">
-            </a>
-            
-            <!-- Portfolio item 08 -->
-            <a href="portfolio-item.html" class="portfolio__item">
-                <img src="img/portfolio-08.jpg" alt="" class="portfolio__img">
-            </a>
-            
-            <!-- Portfolio item 09 -->
-            <a href="portfolio-item.html" class="portfolio__item">
-                <img src="img/portfolio-09.jpg" alt="" class="portfolio__img">
-            </a>
-            
-            <!-- Portfolio item 0 0-->
-            <a href="portfolio-item.html" class="portfolio__item">
-                <img src="img/portfolio-10.jpg" alt="" class="portfolio__img">
-            </a>
+    <!-- About Me Section -->
+    <section class="about-me" id="about">
+        <div class="about-container">
+            <div class="about-content">
+                <div class="section-header">
+                    <h2 class="section__title">Who I am</h2>
+                    <span class="section__subtitle">Passionate Data Explorer</span>
+                </div>
+                <div class="about-cards">
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Background</h3>
+                            <p>I'm Avimanyu Ghimire, a data science undergraduate with a strong interest in combining analytical thinking and creativity to solve real-world problems. My passion for physics drives my curiosity about the fundamental workings of our universe.</p>
+                        </div>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Technical Expertise</h3>
+                            <p>In the realm of data science, I excel at data manipulation using Python and pandas, creating insightful visualizations, and extracting meaningful patterns from complex datasets. My analytical mindset, combined with technical skills, allows me to tackle challenging problems effectively.</p>
+                        </div>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Interests & Passions</h3>
+                            <p>Beyond the technical aspects, I'm deeply fascinated by material psychology and how it intersects with data science. When I'm not coding or analyzing data, you'll find me exploring new scientific concepts or engaging in thoughtful discussions about technology and innovation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <div class="image-wrapper">
+                    <img src="assets/images/avimanyu1.jpg" alt="Avimanyu's Portrait">
+                    <div class="image-decorator"></div>
+                </div>
+            </div>
         </div>
+    </section>
 
+    <!-- Work Experience Section -->
+    <section class="my-work" id="work">
+        <div class="work-container">
+            <h2 class="section__title">Work Experience</h2>
+            <div class="work-cards">
+                <div class="work-card">
+                    <div class="work-card__year">2023 - 2024</div>
+                    <div class="work-card__content">
+                        <h3 class="work-card__title">Project Managing Assistant</h3>
+                        <div class="work-card__company">
+                            <i class="fas fa-building"></i>
+                            DAS Environmental & Engineering Research Center
+                        </div>
+                        <ul class="work-card__tasks">
+                            <li>Maintained backends for customer support systems</li>
+                            <li>Created automated employee task assignment portal</li>
+                            <li>Managed branding projects to improve client engagement</li>
+                        </ul>
+                        <div class="work-card__skills">
+                            <span>Project Management</span>
+                            <span>Backend Development</span>
+                            <span>Automation</span>
+                        </div>
+                        <div class="work-card__reference">
+                            <strong>Reference:</strong> John Doe, Senior Manager, DAS Environmental
+                        </div>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <div class="work-card__year">2022 - 2023</div>
+                    <div class="work-card__content">
+                        <h3 class="work-card__title">Project Management Intern</h3>
+                        <div class="work-card__company">
+                            <i class="fas fa-building"></i>
+                            DAS Environmental & Engineering Research Center
+                        </div>
+                        <ul class="work-card__tasks">
+                            <li>Built data visualization dashboards</li>
+                            <li>Implemented marketplace APIs</li>
+                            <li>Optimized inventory tracking systems</li>
+                        </ul>
+                        <div class="work-card__skills">
+                            <span>Data Analysis</span>
+                            <span>API Integration</span>
+                            <span>Dashboard Design</span>
+                        </div>
+                        <div class="work-card__reference">
+                            <strong>Reference:</strong> Jane Smith, Project Lead, DAS Environmental
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <h2 class="section__title">Projects</h2>
+        <div class="project-cards">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="assets/images/project1.jpg" alt="Project 1">
+                </div>
+                <div class="project-content">
+                    <h3>Data Visualization Dashboard</h3>
+                    <p>A dashboard built using Python and Tableau to visualize sales data and trends.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="assets/images/project2.jpg" alt="Project 2">
+                </div>
+                <div class="project-content">
+                    <h3>Machine Learning Model</h3>
+                    <p>A predictive model for customer churn using Scikit-learn and TensorFlow.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="assets/images/project3.jpg" alt="Project 3">
+                </div>
+                <div class="project-content">
+                    <h3>Inventory Management System</h3>
+                    <p>An automated system for tracking inventory using Python and SQL.</p>
+                    <a href="#" class="project-link">View Project</a>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <!-- replace with your own email address -->
         <a href="mailto:hello@aevy.dsci" class="footer__link">hello@aevy.dsci</a>
         <ul class="social-list">
             <li class="social-list__item">
@@ -194,7 +283,5 @@
     </footer>
 
     <script src="js/index.js"></script>
-
 </body>
-
 </html>
