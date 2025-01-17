@@ -55,23 +55,21 @@ body.light-mode {
 }
 
 /* Theme Toggle Fix */
-@media (max-width: 768px) {
-    .theme-toggle {
-        position: fixed;
-        top: 0.3rem;
-        right: 50%;
-        transform: translateX(50%); /* Center horizontally */
-        z-index: 1001;
-        cursor: pointer;
-        background: var(--clr-card-bg);
-        border: 1px solid var(--clr-card-border);
-        border-radius: 50%;
-        padding: 0.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s ease;
-    }
+.theme-toggle {
+    position: fixed;
+    top: 0.3rem;
+    right: 50%;
+    transform: translateX(50%); /* Center horizontally */
+    z-index: 1001;
+    cursor: pointer;
+    background: var(--clr-card-bg);
+    border: 1px solid var(--clr-card-border);
+    border-radius: 50%;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
 }
 
 .theme-toggle:hover {
@@ -325,8 +323,7 @@ header {
     width: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
 }
 
 .nav__list {
