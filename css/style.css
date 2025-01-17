@@ -292,7 +292,7 @@ header {
 
 .logo span {
     background: var(--clr-primary);
-    color: var(--clr-text);
+    color: var(--clr-secondary);
     padding: var(--spacing-small) var(--spacing-medium);
     border-radius: 8px;
     box-shadow: var(--bs);
@@ -302,6 +302,8 @@ header {
 .logo:hover span {
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /* background: var(--clr-secondary); /* Subtle inverse effect on hover */
+    /* color: var(--clr-primary);  */
 }
 
 /* Navigation */
@@ -309,8 +311,8 @@ header {
     position: fixed;
     background: rgba(var(--clr-background), 0.95);
     color: var(--clr-text);
-    top: 3em;
-    right: 0.5em;
+    top: 0;
+    right: 0;
     z-index: 100;
     transform: translateX(100%);
     transition: transform 444ms cubic-bezier(.5, 0, .5, 1);
@@ -318,7 +320,7 @@ header {
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     padding: var(--spacing-small);
-    width: 250px;
+    width: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -477,6 +479,7 @@ header {
     margin-bottom: var(--spacing-small);
     font-weight: 500;
     letter-spacing: 0.05em;
+    margin-top: 1.5%;
 }
 
 .intro-title {
