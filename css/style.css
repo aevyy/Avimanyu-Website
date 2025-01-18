@@ -502,6 +502,7 @@ header {
     font-weight: 700;
     background: linear-gradient(120deg, var(--clr-text), var(--clr-text-muted));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     line-height: 1.2;
     display: block;
@@ -621,7 +622,7 @@ header {
     transform: translateY(-2px);
 }
 
-//* Visual Section */
+/* Visual Section */
 .intro-visual {
     position: relative;
 }
