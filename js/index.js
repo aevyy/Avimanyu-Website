@@ -28,13 +28,14 @@ window.addEventListener('scroll', () => {
     if (Math.abs(window.scrollY - lastScrollY) > 10) {
         if (window.scrollY > lastScrollY) {
             // Scrolling down, hide the header
-            header.style.transform = 'translateY(-100%)';
+            header.style.top = '-100px'; // Adjust the value to match your header height
         } else {
             // Scrolling up, show the header
-            header.style.transform = 'translateY(0)';
+            header.style.top = '0';
         }
         lastScrollY = window.scrollY;
     }
 });
+
 
 
