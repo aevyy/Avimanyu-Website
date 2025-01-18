@@ -54,6 +54,11 @@ body.light-mode {
     --clr-section-border: rgba(0, 0, 0, 0.05);
 }
 
+* {
+    box-sizing: border-box; /* Avoid width-related issues */
+    max-width: 100vw; /* Restrict elements within viewport width */
+}
+
 /* Theme Toggle Fix */
 .theme-toggle {
     position: fixed;
@@ -119,8 +124,9 @@ body.light-mode {
 }
 
 /* Smooth Scroll */
-html {
+html, body{
     scroll-behavior: smooth;
+    /* overflow-x: hidden; */
 }
 
 /* Responsive Typography */
@@ -135,6 +141,7 @@ html {
 
 /* Body Styling */
 body {
+    overflow-x: hidden;
     background: var(--clr-background);
     color: var(--clr-text);
     margin: 0;
@@ -321,6 +328,7 @@ header {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     padding: var(--spacing-small);
     width: relative;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -358,7 +366,7 @@ header {
     position: absolute;
     right: 1em;
     top: 1em;
-    z-index: 1000;
+    z-index: 2000;
 }
 
 .nav-open .nav {
