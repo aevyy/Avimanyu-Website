@@ -25,14 +25,15 @@ let lastScrollY = window.scrollY;
 const header = document.querySelector('header');
 
 window.addEventListener('scroll', () => {
-    if (Math.abs(window.scrollY - lastScrollY) > 10) {
+    if (Math.abs(window.scrollY - lastScrollY) > 4.4) {
         if (window.scrollY > lastScrollY) {
             // Scrolling down, hide the header
-            header.style.top = '-100px'; // Adjust the value to match your header height
+            header.style.top = '-38.44px'; // Adjust the value to match your header height
         } else {
             // Scrolling up, show the header
             header.style.top = '0';
         }
+        
         lastScrollY = window.scrollY;
     }
 });
