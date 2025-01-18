@@ -318,7 +318,7 @@ header {
 /* Navigation */
 .nav {
     position: fixed;
-    background: rgba(var(--clr-background), 0.95);
+    background: var(--clr-background);
     color: var(--clr-text);
     top: 0;
     right: 0;

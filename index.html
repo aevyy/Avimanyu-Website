@@ -220,9 +220,9 @@
                             DAS Environmental & Engineering Research Center
                         </div>
                         <ul class="work-card__tasks">
-                            <li>Maintained backends for customer support systems</li>
-                            <li>Created automated employee task assignment portal</li>
-                            <li>Managed branding projects to improve client engagement</li>
+                            <li>Maintained backends for customer support systems.</li>
+                            <li>Created automated employee assessment and assignment portal.</li>
+                            <li>Overlooked and guided over 36 successful engineering projects.</li>
                         </ul>
                         <div class="work-card__skills">
                             <span>Project Management</span>
@@ -230,8 +230,11 @@
                             <span>Automation</span>
                         </div>
                         <div class="work-card__reference">
-                            <strong>Reference:</strong> John Doe, Senior Manager, DAS Environmental
-                        </div>
+                            <strong>Reference:</strong> Jane Smith | Project Manager | 
+                            <a href="mailto:example@gmail.com?subject=Project Inquiry" title="Email Mr. John">
+                                <i class="fas fa-envelope"></i> Contact
+                            </a>
+                        </div>                        
                     </div>
                 </div>
                 <div class="work-card">
@@ -243,9 +246,9 @@
                             DAS Environmental & Engineering Research Center
                         </div>
                         <ul class="work-card__tasks">
-                            <li>Built data visualization dashboards</li>
-                            <li>Implemented marketplace APIs</li>
-                            <li>Optimized inventory tracking systems</li>
+                            <li>Built data visualization dashboards to communicate the project status.</li>
+                            <li>Implemented marketplace APIs for automated orders.</li>
+                            <li>Optimized inventory tracking systems to keep track of tools and kits through a software.</li>
                         </ul>
                         <div class="work-card__skills">
                             <span>Data Analysis</span>
@@ -253,8 +256,11 @@
                             <span>Dashboard Design</span>
                         </div>
                         <div class="work-card__reference">
-                            <strong>Reference:</strong> Jane Smith, Project Lead, DAS Environmental
-                        </div>
+                            <strong>Reference:</strong> Jane Doe | Project Lead | 
+                            <a href="mailto:example@gmail.com?subject=Project Inquiry" title="Email Mrs. John">
+                                <i class="fas fa-envelope"></i> Contact
+                            </a>
+                        </div>                                             
                     </div>
                 </div>
             </div>
@@ -280,8 +286,8 @@
                     <img src="assets/images/project2.jpg" alt="Project 2">
                 </div>
                 <div class="project-content">
-                    <h3>Machine Learning Model</h3>
-                    <p>A predictive model for customer churn using Scikit-learn and TensorFlow.</p>
+                    <h3>AI Model</h3>
+                    <p>A predictive model for customer churn mainly using Scikit-learn and TensorFlow.</p>
                     <a href="#" class="project-link">View Project</a>
                 </div>
             </div>
@@ -304,12 +310,12 @@
         <div class="blog-posts">
             <div class="blog-post">
                 <h3>Understanding Machine Learning</h3>
-                <p>A deep dive into the fundamentals of machine learning and its applications.</p>
+                <p>My deep dive into the fundamentals of machine learning and its applications.</p>
                 <a href="#" class="blog-link">Read More</a>
             </div>
             <div class="blog-post">
-                <h3>Data Visualization Best Practices</h3>
-                <p>Learn how to create effective and insightful data visualizations.</p>
+                <h3>My Experience in Data Visualization</h3>
+                <p>TO BE ADDED LATER</p>
                 <a href="#" class="blog-link">Read More</a>
             </div>
         </div>
@@ -318,17 +324,33 @@
     <!-- Contact Section -->
     <section class="contact" id="contact" data-aos="fade-up">
         <h2 class="section__title">Get in Touch</h2>
-        <form class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
+        <form name="contact" class="contact-form" method="POST" data-netlify="true">
+            <!-- Netlify Hidden Field for Form Name -->
+            <input type="hidden" name="form-name" value="contact">
+            
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Good Name" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+            
+            <!-- Honeypot Field for Spam Prevention (Optional) -->
+            <p style="display: none;">
+                <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+            </p>
+            
             <button type="submit" class="cta-primary">Send Message</button>
         </form>
     </section>
+    
+    
 
     <!-- Footer -->
     <footer class="footer">
-        <a href="mailto:hello@aevy.dsci" class="footer__link">hello@aevy.dsci</a>
+        <a href="mailto:aevyy.gh@gmail.com" class="footer__link">aevyy.gh@gmail.com</a>
         <ul class="social-list">
             <li class="social-list__item">
                 <a class="social-list__link" href="https://codepen.io">
