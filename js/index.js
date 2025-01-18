@@ -18,3 +18,23 @@ window.addEventListener('scroll', () => {
     const scrolled = (window.scrollY / scrollHeight) * 100;
     scrollProgress.style.width = `${scrolled}%`;
 });
+
+
+// header hiding on scroll effect
+let lastScrollY = window.scrollY;
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', () => {
+    if (Math.abs(window.scrollY - lastScrollY) > 10) {
+        if (window.scrollY > lastScrollY) {
+            // Scrolling down, hide the header
+            header.style.transform = 'translateY(-100%)';
+        } else {
+            // Scrolling up, show the header
+            header.style.transform = 'translateY(0)';
+        }
+        lastScrollY = window.scrollY;
+    }
+});
+
+
