@@ -2,10 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <!-- something sus, impo for phones-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3.0, minimum-scale=1.0, user-scalable=yes">
-
     <title>Avimanyu Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
@@ -347,7 +345,7 @@
             
             <button type="submit" class="cta-primary">Send Message</button>
         </form>
-    </section>    
+    </section>
     
     <!-- Footer -->
     <footer class="footer">
@@ -376,6 +374,16 @@
         </ul>
     </footer>
 
+    <!-- Scroll to Top Button -->
+    <button class="scrollup" aria-label="Scroll to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scroll to Bottom Button -->
+    <button class="scrolldown" aria-label="Scroll to Bottom">
+        <i class="fas fa-arrow-down"></i>
+    </button>
+
     <!-- Scripts -->
     <script>
         // Particles.js Initialization
@@ -397,6 +405,18 @@
             const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (window.scrollY / scrollHeight) * 100;
             scrollProgress.style.width = `${scrolled}%`;
+        });
+
+        // Scroll to Top Button
+        const scrollUp = document.querySelector('.scrollup');
+        scrollUp.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Scroll to Bottom Button
+        const scrollDown = document.querySelector('.scrolldown');
+        scrollDown.addEventListener('click', () => {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         });
     </script>
     <!-- AOS (Animate On Scroll) -->
