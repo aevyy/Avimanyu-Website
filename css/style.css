@@ -13,20 +13,20 @@
     --clr-text-muted: #ccc; /* Muted text */
     --clr-primary: #ff6347; /* Tomato */
     --clr-secondary: #00bfff; /* Deep sky blue */
-    --clr-card-bg: #222; /* Dark card background */
-    --clr-card-border: #444; /* Dark card border */
-    --clr-card-hover-bg: #333; /* Dark card hover background */
-    --clr-card-hover-border: #666; /* Dark card hover border */
+    --clr-card-bg: #1b1919; /* Dark card background */
+    --clr-card-border: #311c1c; /* Dark card border */
+    --clr-card-hover-bg: #252323; /* Dark card hover background */
+    --clr-card-hover-border: #2e2d2d; /* Dark card hover border */
     --clr-section-bg: #222; /* Dark section background */
-    --clr-section-border: #00bfff; /* Deep sky blue border */
+    --clr-section-border: #2f3233; /* Deep sky blue border */
     --clr-footer-bg: #222; /* Dark footer background */
     --clr-accent: #ff6347; /* Tomato accent */
-    --btn-primary-bg: linear-gradient(to right, #ff6347, #00bfff); /* Tomato to deep sky blue */
+    --btn-primary-bg: linear-gradient(to right, var(--clr-accent), var(--clr-secondary)); /* Tomato to deep sky blue */
     --btn-secondary-bg: rgba(255, 99, 71, 0.1); /* Tomato with low opacity */
-    --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.15),
+    --card-shadow: 0 8px 32px rgba(39, 62, 131, 0.15),
                   inset 0 2px 15px rgba(255, 99, 71, 0.05);
-    --card-hover-shadow: 0 16px 48px rgba(0, 0, 0, 0.2),
-                        inset 0 2px 20px rgba(0, 191, 255, 0.1);
+    --card-hover-shadow: 0 16px 48px rgba(250, 22, 22, 0.2),
+                        inset 0 2px 20px rgba(8, 152, 200, 0.1);
     --section-padding: 5em 2em;
     --section-margin: 2em auto;
     --fs-h1: 3.5rem;
@@ -34,32 +34,32 @@
     --fs-h3: 1.5rem;
     --fs-body: 1.125rem;
     --bs: 0 8px 32px rgba(78, 84, 200, 0.1), 0 4px 8px rgba(157, 78, 221, 0.05);
-    --spacing-small: 0.5rem;
-    --spacing-medium: 1rem;
+    --spacing-small: 0.4rem;
+    --spacing-medium: 0.8rem;
     --spacing-large: 2.5rem;
 }
 
 /* Light Mode */
 body.light-mode {
-    --clr-background: #f0f0f0; /* Light background */
+    --clr-background: #fff5f5; /* Light background with slight red tint */
     --clr-text: #333; /* Dark text */
     --clr-text-muted: #666; /* Muted text */
-    --clr-primary: #4e54c8; /* Royal blue */
-    --clr-secondary: #9d4edd; /* Deep purple */
-    --clr-card-bg: rgba(255, 255, 255, 0.8); /* Translucent white */
-    --clr-card-border: rgba(78, 84, 200, 0.2); /* Subtle royal blue border */
-    --clr-card-hover-bg: rgba(245, 245, 245, 0.9); /* Slightly lighter on hover */
-    --clr-card-hover-border: rgba(157, 78, 221, 0.3); /* Enhanced purple border */
-    --clr-section-bg: rgba(255, 255, 255, 0.8); /* Translucent white */
-    --clr-section-border: rgba(157, 78, 221, 0.2); /* Subtle purple border */
-    --clr-footer-bg: #1a1f2e; /* Deep navy blue footer */
-    --clr-accent: #00ffab; /* Bright jewel turquoise */
-    --btn-primary-bg: linear-gradient(to right, #4e54c8, #9d4edd); /* Royal blue to purple */
-    --btn-secondary-bg: rgba(78, 84, 200, 0.1);
-    --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.15),
-                  inset 0 2px 15px rgba(78, 84, 200, 0.05);
-    --card-hover-shadow: 0 16px 48px rgba(0, 0, 0, 0.2),
-                        inset 0 2px 20px rgba(157, 78, 221, 0.1);
+    --clr-primary: #ff4d4d; /* Bright red */
+    --clr-secondary: #ff8080; /* Lighter red */
+    --clr-card-bg: rgba(255, 242, 242, 0.8); /* Translucent white with red tint */
+    --clr-card-border: rgba(255, 77, 77, 0.2); /* Subtle red border */
+    --clr-card-hover-bg: rgba(255, 235, 235, 0.9); /* Slightly redder on hover */
+    --clr-card-hover-border: rgba(255, 128, 128, 0.3); /* Enhanced red border */
+    --clr-section-bg: rgba(255, 242, 242, 0.8); /* Translucent white with red tint */
+    --clr-section-border: rgba(255, 128, 128, 0.2); /* Subtle red border */
+    --clr-footer-bg: #2e1a1a; /* Deep red-tinted footer */
+    --clr-accent: #ff3333; /* Vibrant red accent */
+    --btn-primary-bg: linear-gradient(to right, #ff4d4d, #ff8080); /* Red gradient */
+    --btn-secondary-bg: rgba(255, 77, 77, 0.1);
+    --card-shadow: 0 8px 32px rgba(255, 77, 77, 0.15),
+                  inset 0 2px 15px rgba(255, 128, 128, 0.05);
+    --card-hover-shadow: 0 16px 48px rgba(255, 77, 77, 0.2),
+                        inset 0 2px 20px rgba(255, 128, 128, 0.1);
 }
 
 /* Avoid width-related issues */
@@ -272,6 +272,7 @@ section {
     max-width: 1200px;
     position: relative;
     z-index: 1;
+    
 }
 
 section:hover {
@@ -577,11 +578,11 @@ header {
     background: linear-gradient(90deg, var(--clr-primary), var(--clr-secondary));
     border-radius: 2px;
     transform: scaleX(0);
-    animation: expandWidth 0.5s 0.7s forwards;
+    animation: expandWidth 0.9s 0.3s forwards;
 }
 
 @keyframes expandWidth {
-    to { transform: scaleX(1); }
+    to { transform: scaleX(-1); }
 }
 
 .intro-role {
@@ -1064,13 +1065,18 @@ header {
     color: var(--clr-text);
     font-size: var(--fs-h2);
     margin-bottom: 3rem;
-    position: relative;
+    position: relative; /* Required for absolute positioning of ::after */
+}
+
+.my-services {
+    overflow: visible !important; /* Ensure nothing is clipping the ::after */
 }
 
 .section__title--services::after {
     content: '';
     position: absolute;
     bottom: -15px;
+    margin-left: 1.3em;
     left: 50%;
     transform: translateX(-50%);
     width: 80px;
@@ -1296,6 +1302,7 @@ header {
     height: 4px;
     background: var(--btn-primary-bg);
     border-radius: 2px;
+    z-index: 1;
 }
 
 .section__subtitle {
@@ -1588,7 +1595,7 @@ header {
 }
 
 .work-card__year {
-    color: var(--clr-secondary);
+    color: var(--clr-accent);
     font-size: 0.9rem;
     font-weight: 500;
     margin-bottom: var(--spacing-medium);
@@ -1630,7 +1637,7 @@ header {
     content: "→";
     position: absolute;
     left: 0;
-    color: var(--clr-secondary);
+    color: var(--clr-accent);
 }
 
 .work-card__skills {
@@ -1641,7 +1648,7 @@ header {
 
 .work-card__skills span {
     background: rgba(var(--clr-secondary), 0.1);
-    color: var(--clr-secondary);
+    color: var(--clr-accent);
     padding: var(--spacing-small) var(--spacing-medium);
     border-radius: 15px;
     font-size: 0.9rem;
@@ -2285,4 +2292,4 @@ header {
 }
 
 .border-gradient {
-    border: 2px
+    border: 2px;

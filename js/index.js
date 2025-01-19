@@ -28,7 +28,7 @@ window.addEventListener('scroll', () => {
     if (Math.abs(window.scrollY - lastScrollY) > 4.4) {
         if (window.scrollY > lastScrollY) {
             // Scrolling down, hide the header
-            header.style.top = '-42px'; // Adjust the value to match your header height
+            header.style.top = '-36.44px'; // Adjust the value to match your header height
         } else {
             // Scrolling up, show the header
             header.style.top = '0';
