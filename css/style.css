@@ -135,7 +135,7 @@ body.light-mode {
 /* Smooth Scroll */
 html, body {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 /* Responsive Typography */
@@ -157,6 +157,7 @@ body {
     font-family: var(--ff-primary);
     font-size: var(--fs-body);
     line-height: 1.6;
+    overflow-x: hidden;
     position: relative;
 }
 
@@ -271,11 +272,11 @@ section {
     max-width: 1200px;
     position: relative;
     z-index: 1;
-    overflow: hidden;
+    
 }
 
 section:hover {
-    transform: translateY(-5px) scale(1.02);
+    transform: translateY(-5px);
     box-shadow: var(--card-hover-shadow);
 }
 
@@ -301,6 +302,7 @@ header {
     font-size: 0.6rem;
     font-weight: var(--fw-bold);
     color: var(--clr-text);
+    /* margin-left: var(--spacing-medium); */
     text-transform: uppercase;
     letter-spacing: 2px;
     text-decoration: none;
@@ -319,6 +321,8 @@ header {
 .logo:hover span {
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /* background: var(--clr-secondary); /* Subtle inverse effect on hover */
+    /* color: var(--clr-primary);  */
 }
 
 /* Navigation */
@@ -2289,21 +2293,12 @@ header {
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    transition: background 0.3s ease;
     z-index: 1000;
-    opacity: 0;
-    pointer-events: none;
-    transform: rotate(0deg);
-}
-
-.scrollup.visible {
-    opacity: 1;
-    pointer-events: auto;
 }
 
 .scrollup:hover {
     background: var(--clr-accent);
-    transform: rotate(360deg);
 }
 
 .scrollup i {
@@ -2405,5 +2400,5 @@ header {
 }
 
 .border-gradient {
-    border: 2px;
+    border: 2px solid var(--clr-primary);
 }
