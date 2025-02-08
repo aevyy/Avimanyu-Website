@@ -1119,8 +1119,12 @@ header {
 
 /* Service Header Styling */
 .service-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: flex-start;  /* Align to top for long titles */
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
     gap: 1rem;
     margin: 0 0 1.25rem 0;
     perspective: 1000px;
@@ -2676,7 +2680,11 @@ header {
 
 /* About Card Header Styling */
 .card-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
     align-items: center;
     gap: 0.75rem;
     margin: 0;  /* Remove margin completely */
@@ -2696,6 +2704,7 @@ header {
 
 /* About card icon hover animation */
 .about-card:hover .card-header i {
+    -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
     color: #4A90E2;  /* Hover color - blue */
 }
@@ -2711,8 +2720,12 @@ header {
 
 /* Service Header Styling */
 .service-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: flex-start;  /* Align to top for long titles */
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
     gap: 1rem;
     margin: 0 0 1.25rem 0;
     perspective: 1000px;
