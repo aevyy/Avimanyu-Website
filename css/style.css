@@ -1127,14 +1127,18 @@ header {
     align-items: flex-start;
     gap: 1rem;
     margin: 0 0 1.25rem 0;
+    -webkit-perspective: 1000px;
     perspective: 1000px;
 }
 
 .service-header i {
+    display: inline-block;
     font-size: 1.5rem;
     color: #FF6B6B;
-    margin-top: 0.25rem;  /* Align icon with first line of text */
+    margin-top: 0.25rem;
+    -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
+    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
 
@@ -2691,9 +2695,12 @@ header {
 }
 
 .card-header i {
+    display: inline-block;
     font-size: 1.25rem;
     color: #FF6B6B;
+    -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
+    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
 
@@ -2728,5 +2735,6 @@ header {
     align-items: flex-start;
     gap: 1rem;
     margin: 0 0 1.25rem 0;
+    -webkit-perspective: 1000px;
     perspective: 1000px;
 }
