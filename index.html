@@ -13,6 +13,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Particles.js -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <!-- EmailJS Library -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Particles.js Background -->
@@ -469,15 +471,15 @@
     <!-- Contact Section -->
     <section class="contact" id="contact" data-aos="fade-up">
         <h2 class="section__title" style="margin-bottom: 1.5rem;">Get in Touch</h2>
-        <form name="contact" class="contact-form" method="POST" data-netlify="true">
-            <!-- Netlify Hidden Field for Form Name -->
-            <input type="hidden" name="form-name" value="contact">
-            
+        <form id="contact-form" name="contact" class="contact-form" method="POST">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" placeholder="Your Good Name" required>
             
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Your Email" required>
+            
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Subject" required>
             
             <label for="message">Message</label>
             <textarea id="message" name="message" placeholder="Your Message" required></textarea>
@@ -571,5 +573,24 @@
         });
     </script>
     <script src="js/index.js?v=1.0.2"></script>
+    <script type="text/javascript">
+        // Initialize EmailJS with your Public Key
+        emailjs.init("7Vvx1tSkxaH-J7_Qz");
+
+        // Listen for form submission and send email via EmailJS
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            emailjs.sendForm('service_jacbqth', 'template_qzpk5ka', this)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    alert('Message sent successfully!');
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Message failed to send. Please try again later.');
+                });
+            this.reset(); // Optionally, clear the form after submission
+        });
+    </script>
 </body>
 </html>
