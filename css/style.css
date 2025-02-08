@@ -1112,14 +1112,12 @@ header {
 
 /* Services Container */
 .services {
-    max-width: 1400px;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
     padding: 1rem;
-    position: relative;
-    z-index: 1;
 }
 
 /* Service Cards */
@@ -1893,10 +1891,10 @@ header {
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-    max-width: 1400px;
+    gap: 2rem;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 0 1rem;
 }
 
 /* Project Card */
@@ -2062,7 +2060,8 @@ header {
 /* Responsive Design */
 @media (max-width: 992px) {
     .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+        max-width: 600px;
     }
 }
 
@@ -2932,8 +2931,12 @@ header {
 
 /* Adjust project grid for better spacing */
 .projects-grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;         /* Increased gap between cards */
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 /* Make work cards use space better */
@@ -2968,5 +2971,36 @@ header {
     .projects-grid {
         max-width: 1200px;
         padding: 0 1rem;
+    }
+}
+
+/* Media Queries for Responsive Grids */
+@media screen and (max-width: 1200px) {
+    .services {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 900px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .services,
+    .projects-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        gap: 1.5rem;
+    }
+
+    .service,
+    .project-card {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .services,
+    .projects-grid {
+        padding: 0.5rem;
+        gap: 1rem;
     }
 }
