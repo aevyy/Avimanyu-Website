@@ -429,14 +429,14 @@ header {
     bottom: 6px;
 }
 
-/* Intro Section */
+/* Intro Section - Reduce gap from header */
 .intro {
-    min-height: 100vh;
+    min-height: 85vh;
+    margin-top: 0.5rem;  /* Small gap between header and intro */
     position: relative;
     overflow: hidden;
     background: var(--clr-background);
-    display: flex;
-    align-items: center;
+    padding: 2rem 1rem;
 }
 
 /* Enhanced Background Effects */
@@ -992,7 +992,7 @@ header {
     position: relative;
     overflow: hidden;
     background: var(--clr-background);
-    padding: var(--section-padding);
+    padding: 2rem 1rem;  /* Match projects section padding */
 }
 
 /* Enhanced Background Effects (Same as Intro Section) */
@@ -1257,7 +1257,7 @@ header {
     position: relative;
     overflow: hidden;
     background: var(--clr-background);
-    padding: var(--section-padding);
+    padding: 2rem 1rem;  /* Match projects section padding */
 }
 
 /* Background Effects */
@@ -1831,62 +1831,31 @@ header {
 .projects {
     min-height: 88vh;
     position: relative;
-    padding: 4rem 2rem;
+    padding: 2rem 1rem;  /* Reduced overall section padding */
     background: var(--clr-background);
-    /* overflow: hidden; */
     z-index: 2;
-}
-
-.projects::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at top left, 
-    rgba(255, 99, 71, 0.1),
-    transparent 60%),
-    radial-gradient(circle at bottom right, 
-    rgba(255, 99, 71, 0.1),
-    transparent 60%),
-    radial-gradient(circle, 
-    rgba(0, 191, 255, 0.1),
-    transparent 60%);
-    pointer-events: none;
 }
 
 .projects__header {
     text-align: left;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;  /* Reduced space between header and grid */
 }
 
-.section__title {
-    font-size: 2.5rem;
-    color: var(--clr-text);
-    margin-bottom: 0.5rem;
-}
-
-.section__subtitle {
-    color: var(--clr-text-muted);
-    font-size: 1.1rem;
-}
-
-/* Projects Grid */
+/* Projects Grid Layout */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;  /* Reduced gap between cards */
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 1rem;  /* Reduced padding around the grid */
 }
 
 /* Project Card */
 .project-card {
     background: var(--clr-card-bg);
     border-radius: 20px;
-    padding: 1.5rem;
+    padding: 1.25rem;  /* Slightly reduced internal card padding */
     border: 1px solid var(--clr-card-border);
     box-shadow: var(--card-shadow);
     transition: all 0.3s ease;
@@ -2042,10 +2011,6 @@ header {
 }
 
 @media (max-width: 768px) {
-    .projects {
-        padding: 3rem 1rem;
-    }
-
     .projects-grid {
         grid-template-columns: 1fr;
         max-width: 500px;
@@ -2370,7 +2335,7 @@ header {
     position: relative;
     overflow: hidden;
     background: var(--clr-background);
-    padding: var(--section-padding);
+    padding: 2rem 1rem;  /* Match projects section padding */
     margin: var(--section-margin);
     border-radius: 15px;
 }
@@ -2521,27 +2486,68 @@ header {
 /* Scroll to Top Button */
 .scrollup {
     position: fixed;
-    right: 20px;
-    bottom: 20px;
-    width: 40px;
-    height: 40px;
-    background: var(--clr-secondary);
-    color: var(--clr-text);
+    right: 2rem;
+    bottom: 2rem;
+    background: var(--clr-card-bg);
+    border: 1px solid var(--clr-card-border);
     border-radius: 50%;
+    padding: 0.75rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background 0.3s ease;
-    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    box-shadow: var(--card-shadow);
 }
 
-.scrollup:hover {
-    background: var(--clr-accent);
-}
-
+/* Arrow color for dark theme (white) */
 .scrollup i {
-    font-size: 1.5rem;
+    color: #fff;  /* White arrow in dark theme */
+    transition: transform 0.3s ease;
+}
+
+/* Arrow color for light theme (dark) */
+.light-mode .scrollup i {
+    color: #333;  /* Dark arrow in light theme */
+}
+
+.scrollup.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Enhanced hover effects */
+.scrollup:hover {
+    background: #fff;  /* White background on hover in dark theme */
+    border-color: #fff;
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 0 15px rgba(var(--clr-primary), 0.3);
+}
+
+/* Light theme hover */
+.light-mode .scrollup:hover {
+    background: #333;  /* Dark background on hover in light theme */
+    border-color: #333;
+}
+
+/* Arrow color on hover */
+.scrollup:hover i {
+    color: #333;  /* Dark arrow on hover in dark theme */
+    animation: bounceUp 0.8s ease infinite;
+}
+
+/* Light theme arrow color on hover */
+.light-mode .scrollup:hover i {
+    color: #fff;  /* White arrow on hover in light theme */
+}
+
+@keyframes bounceUp {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
 }
 
 /* Responsive Design */
