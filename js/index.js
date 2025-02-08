@@ -37,3 +37,24 @@ window.addEventListener('scroll', () => {
         lastScrollY = window.scrollY;
     }
 });
+
+// Scroll to Top Button Visibility
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        scrollUp.classList.add('visible');
+    } else {
+        scrollUp.classList.remove('visible');
+    }
+});
+
+// Initial check for scroll position
+if (window.pageYOffset > 300) {
+    scrollUp.classList.add('visible');
+}
+
+scrollUp.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});

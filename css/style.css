@@ -1894,7 +1894,7 @@ header {
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 1rem;
 }
 
 /* Project Card */
@@ -2936,7 +2936,7 @@ header {
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 1rem;
 }
 
 /* Make work cards use space better */
