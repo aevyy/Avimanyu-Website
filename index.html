@@ -387,7 +387,7 @@
 
         <div class="projects-grid">
             <!-- Project Card 1: IoT Soil Monitoring System -->
-            <div class="project-card" data-aos="fade-up">
+            <div class="project-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="project-image-wrapper">
                     <img src="assets/images/portfolio-09.jpg" alt="IoT Soil Monitoring System">
                 </div>
@@ -407,7 +407,7 @@
             </div>
 
             <!-- Project Card 2: Real-Time Data Visualization Dashboard -->
-            <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="project-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="project-image-wrapper">
                     <img src="assets/images/crops.jpg" alt="Real-Time Data Visualization Dashboard">
                 </div>
@@ -427,7 +427,7 @@
             </div>
 
             <!-- Project Card 3: Crop Yield Prediction Platform -->
-            <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="project-image-wrapper">
                     <img src="assets/images/portfolio-01.jpg" alt="Crop Yield Prediction Platform">
                 </div>
@@ -447,7 +447,7 @@
             </div>
 
             <!-- Project Card 4: Comprehensive Data Analysis Platform -->
-            <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="project-card" data-aos="fade-up" data-aos-delay="400">
                 <div class="project-image-wrapper">
                     <img src="assets/images/data-platform.jpg" alt="Data Analysis Platform">
                 </div>
@@ -518,6 +518,9 @@
                 </a>
             </li>
         </ul>
+        <div class="footer__copyright">
+            © 2024 Avimanyu Ghimire. All rights reserved.
+        </div>
     </footer>
 
     <!-- Scroll to Top Button -->
@@ -527,6 +530,14 @@
 
     <!-- Scripts -->
     <script>
+        // Force scroll to top on page refresh
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        };
+
         // Particles.js Initialization
         particlesJS.load('particles-js', 'js/particles.json', function() {
             console.log('Particles.js loaded');
@@ -593,6 +604,52 @@
                     alert('Message failed to send. Please try again later.');
                 });
             this.reset(); // Optionally, clear the form after submission
+        });
+    </script>
+    <script>
+        // Interactive background effect
+        document.querySelectorAll('.intro, .my-services, .about-me, .my-work, .projects, .contact')
+        .forEach(section => {
+            const background = document.createElement('div');
+            background.className = 'section-background';
+            section.appendChild(background);
+
+            let dot = document.createElement('div');
+            dot.className = 'dot';
+            background.appendChild(dot);
+
+            let isScrolling;
+            
+            section.addEventListener('mousemove', e => {
+                const rect = section.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                // Clear the scrolling timeout
+                window.clearTimeout(isScrolling);
+                
+                // Set smooth transition during normal mouse movement
+                dot.style.transition = 'all 0.2s ease-out';
+                
+                // Update position
+                dot.style.left = x + 'px';
+                dot.style.top = y + 'px';
+                
+                // Set a timeout to detect when scrolling stops
+                isScrolling = setTimeout(() => {
+                    dot.style.transition = 'all 0.2s ease-out';
+                }, 66);
+            });
+
+            section.addEventListener('mouseleave', () => {
+                dot.style.opacity = '0';
+                dot.style.transform = 'translate(-50%, -50%) scale(0.5)';
+            });
+            
+            section.addEventListener('mouseenter', () => {
+                dot.style.opacity = '0.8';
+                dot.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
         });
     </script>
 </body>
