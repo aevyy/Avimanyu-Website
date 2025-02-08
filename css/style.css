@@ -2610,6 +2610,7 @@ header {
     visibility: hidden;
     transform: translateY(20px);
     box-shadow: var(--card-shadow);
+    z-index: 9999; /* Ensure it's above all other elements */
 }
 
 .scrollup i {
