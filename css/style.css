@@ -8,21 +8,21 @@
 /* Dark/Light Mode Variables */
 :root {
     /* Dark mode (default) */
-    --clr-background: #111; /* Dark background */
-    --clr-text: #f0f0f0; /* Light text */
-    --clr-text-muted: #ccc; /* Muted text */
-    --clr-primary: #ff6347; /* Tomato */
-    --clr-secondary: #00bfff; /* Deep sky blue */
-    --clr-card-bg: #1b1919; /* Dark card background */
-    --clr-card-border: #311c1c; /* Dark card border */
-    --clr-card-hover-bg: #252323; /* Dark card hover background */
-    --clr-card-hover-border: #2e2d2d; /* Dark card hover border */
-    --clr-section-bg: #222; /* Dark section background */
-    --clr-section-border: #2f3233; /* Deep sky blue border */
-    --clr-footer-bg: #222; /* Dark footer background */
-    --clr-accent: #ff6347; /* Tomato accent */
-    --btn-primary-bg: linear-gradient(to right, var(--clr-accent), var(--clr-secondary)); /* Tomato to deep sky blue */
-    --btn-secondary-bg: rgba(255, 99, 71, 0.1); /* Tomato with low opacity */
+    --clr-background: #0a1929; /* Deep navy background */
+    --clr-text: #ffffff; /* Crisp white text */
+    --clr-text-muted: #94a3b8; /* Soft blue-gray */
+    --clr-primary: #00d4ff; /* Electric blue */
+    --clr-secondary: #7c3aed; /* Vibrant purple */
+    --clr-card-bg: rgba(23, 42, 69, 0.7); /* Translucent navy */
+    --clr-card-border: rgba(0, 212, 255, 0.2); /* Glowing blue border */
+    --clr-card-hover-bg: rgba(28, 48, 76, 0.9); /* Deeper navy on hover */
+    --clr-card-hover-border: rgba(124, 58, 237, 0.3); /* Purple border on hover */
+    --clr-section-bg: rgba(15, 23, 42, 0.7); /* Darker navy sections */
+    --clr-section-border: rgba(0, 212, 255, 0.1); /* Subtle blue border */
+    --clr-footer-bg: #0f172a; /* Deep navy footer */
+    --clr-accent: #22d3ee; /* Cyan accent */
+    --btn-primary-bg: linear-gradient(to right, var(--clr-accent), var(--clr-secondary));
+    --btn-secondary-bg: rgba(255, 99, 71, 0.1);
     --card-shadow: 0 8px 32px rgba(39, 62, 131, 0.15),
                   inset 0 2px 15px rgba(255, 99, 71, 0.05);
     --card-hover-shadow: 0 16px 48px rgba(250, 22, 22, 0.2),
@@ -380,6 +380,9 @@ header {
     right: 1em;
     top: auto;
     z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .nav-open .nav {
@@ -391,28 +394,31 @@ header {
 }
 
 .nav-open .hamburger {
-    transform: rotate(.625turn);
+    transform: rotate(45deg);
 }
 
 .nav-open .hamburger::before {
-    transform: rotate(90deg) translateX(-6px);
+    transform: translateY(8px) rotate(90deg);
+    top: -8px;
 }
 
 .nav-open .hamburger::after {
-    opacity: 0;
+    transform: translateY(-8px) rotate(90deg);
+    bottom: -8px;
 }
 
 .hamburger {
     display: block;
     position: relative;
+    width: 32px;  /* Increased width */
 }
 
 .hamburger, .hamburger::before, .hamburger::after {
-    background: var(--clr-accent);
-    width: 2em;
-    height: 3px;
+    background: var(--clr-text);
+    width: 32px;  /* Match parent width */
+    height: 2px;
     border-radius: 1em;
-    transition: transform 250ms ease-in-out;
+    transition: all 250ms ease-in-out;
 }
 
 .hamburger::before, .hamburger::after {
@@ -423,11 +429,11 @@ header {
 }
 
 .hamburger::before {
-    top: 6px;
+    top: -8px;
 }
 
 .hamburger::after {
-    bottom: 6px;
+    bottom: -8px;
 }
 
 /* Intro Section - Reduce gap from header */
