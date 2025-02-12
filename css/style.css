@@ -1162,7 +1162,7 @@ header {
 .service-header i {
     display: inline-block;
     font-size: 1.5rem;
-    color: #FF6B6B;
+    color: #4A90E2;  /* Changed from #FF6B6B to #4A90E2 for dark mode default */
     margin-top: 0.25rem;
     -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
@@ -1187,16 +1187,16 @@ header {
 /* Service icon hover animation */
 .service:hover .service-header i {
     transform: rotateY(180deg);
-    color: #4A90E2;  /* Hover color - blue */
+    color: #FF6B6B;  /* Changed from #4A90E2 to #FF6B6B for dark mode hover */
 }
 
 /* Light mode adjustments for service icons */
 .light-mode .service-header i {
-    color: #4A90E2;  /* Starting color in light mode - blue */
+    color: #FF6B6B;  /* Changed from #4A90E2 to #FF6B6B for light mode default */
 }
 
 .light-mode .service:hover .service-header i {
-    color: #FF6B6B;  /* Hover color in light mode - warm orange */
+    color: #4A90E2;  /* Changed from #FF6B6B to #4A90E2 for light mode hover */
 }
 
 /* Service Content */
@@ -1896,9 +1896,9 @@ header {
 /* Projects Grid Layout */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Maximum 3 columns by default */
     gap: 2rem;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 1rem;
 }
@@ -2066,15 +2066,25 @@ header {
 /* Responsive Design */
 @media (max-width: 992px) {
     .projects-grid {
-        grid-template-columns: 1fr;
-        max-width: 600px;
+        grid-template-columns: repeat(2, 1fr);  /* 2 columns on tablet/smaller screens */
+        max-width: 800px;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .projects-grid {
+        grid-template-columns: 1fr;  /* Single column on mobile */
+        max-width: 500px;
+        gap: 1.25rem;
     }
 }
 
 @media (max-width: 768px) {
     .projects-grid {
-        grid-template-columns: 1fr;
-        max-width: 500px;
+        grid-template-columns: 1fr;  /* Single column on mobile */
+        max-width: 600px;
+        gap: 1.5rem;
     }
 
     .project-image-wrapper {
@@ -2824,7 +2834,7 @@ header {
 .card-header i {
     display: inline-block;
     font-size: 1.25rem;
-    color: #FF6B6B;
+    color: #4A90E2;  /* Changed from #FF6B6B to #4A90E2 for dark mode default */
     -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
     -webkit-transform-style: preserve-3d;
@@ -2840,16 +2850,16 @@ header {
 .about-card:hover .card-header i {
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
-    color: #4A90E2;  /* Hover color - blue */
+    color: #FF6B6B;  /* Changed from #4A90E2 to #FF6B6B for dark mode hover */
 }
 
 /* Light mode color adjustments */
 .light-mode .card-header i {
-    color: #4A90E2;  /* Starting color in light mode - blue */
+    color: #FF6B6B;  /* Changed from #4A90E2 to #FF6B6B for light mode default */
 }
 
 .light-mode .about-card:hover .card-header i {
-    color: #FF6B6B;  /* Hover color in light mode - warm orange */
+    color: #4A90E2;  /* Changed from #FF6B6B to #4A90E2 for light mode hover */
 }
 
 /* Service Header Styling */
@@ -2938,9 +2948,9 @@ header {
 /* Adjust project grid for better spacing */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 1rem;
 }
@@ -3008,5 +3018,43 @@ header {
     .projects-grid {
         padding: 0.5rem;
         gap: 1rem;
+    }
+}
+
+/* Extra large screens */
+@media screen and (max-width: 1800px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr); /* Maximum 3 columns */
+        max-width: 1400px;
+    }
+}
+
+/* Large screens */
+@media screen and (max-width: 1400px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1200px;
+        gap: 1.75rem;
+    }
+}
+
+/* Medium screens */
+@media screen and (max-width: 900px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 800px;
+        gap: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* Single column */
+        max-width: 500px;
+        gap: 1.25rem;
+    }
+    
+    .project-image-wrapper {
+        height: 200px; /* Larger images for single column */
     }
 }
