@@ -37,6 +37,19 @@
     --spacing-small: 0.4rem;
     --spacing-medium: 0.8rem;
     --spacing-large: 2.5rem;
+    --pattern-hexagons: 
+        linear-gradient(60deg, var(--clr-primary) 1px, transparent 1px),
+        linear-gradient(-60deg, var(--clr-primary) 1px, transparent 1px);
+    --pattern-circuit:
+        radial-gradient(circle at 50% 50%, var(--clr-primary) 1px, transparent 1px),
+        linear-gradient(90deg, var(--clr-primary) 1px, transparent 1px);
+    --pattern-stripes:
+        repeating-linear-gradient(45deg, var(--clr-primary) 0px, var(--clr-primary) 1px, transparent 1px, transparent 30px);
+    --pattern-dots:
+        radial-gradient(var(--clr-primary) 1px, transparent 1px),
+        radial-gradient(var(--clr-secondary) 1px, transparent 1px);
+    --pattern-waves:
+        linear-gradient(45deg, transparent 48%, var(--clr-primary) 49%, var(--clr-primary) 51%, transparent 52%);
 }
 
 /* Light Mode */
@@ -1028,66 +1041,25 @@ header {
 .my-services::before {
     content: '';
     position: absolute;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 50% 50%, 
-        rgba(255, 68, 68, 0.1) 0%,
-        rgba(255, 68, 68, 0.05) 25%,
-        transparent 50%);
-    animation: pulseGradient 10s ease-in-out infinite;
+    inset: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(var(--clr-primary-rgb), 0.1), transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(var(--clr-secondary-rgb), 0.1), transparent 40%);
+    z-index: 0;
+    filter: blur(20px);
 }
 
-@keyframes pulseGradient {
-    0%, 100% { transform: scale(1); opacity: 0.5; }
-    50% { transform: scale(1.2); opacity: 0.8; }
-}
-
-.services-background {
+.my-services::after {
+    content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-.services-sphere {
-    position: absolute;
-    width: 800px; /* Same as Intro Section */
-    height: 800px; /* Same as Intro Section */
-    background: radial-gradient(
-        circle,
-        rgba(var(--clr-primary), 0.15) 0%,
-        rgba(var(--clr-primary), 0.1) 40%,
-        transparent 70%
-    );
-    border-radius: 50%;
-    top: -200px;
-    right: -200px;
-    filter: blur(40px); /* Same as Intro Section */
-    animation: rotateSphere 20s linear infinite; /* Same as Intro Section */
-}
-
-@keyframes rotateSphere {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.grid-overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        linear-gradient(rgba(var(--clr-primary), 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(var(--clr-primary), 0.05) 1px, transparent 1px);
+    inset: 0;
+    background: 
+        linear-gradient(45deg, transparent 45%, var(--clr-primary) 49%, var(--clr-primary) 51%, transparent 55%),
+        linear-gradient(-45deg, transparent 45%, var(--clr-secondary) 49%, var(--clr-secondary) 51%, transparent 55%);
     background-size: 30px 30px;
-    opacity: 0.5;
-    animation: moveGrid 15s linear infinite; /* Same as Intro Section */
-}
-
-@keyframes moveGrid {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(30px); }
+    opacity: 0.1;
+    z-index: 0;
+    animation: patternShift 20s linear infinite;
 }
 
 /* Section Title */
@@ -3058,3 +3030,1032 @@ header {
         height: 200px; /* Larger images for single column */
     }
 }
+
+/* Section Decorative Elements */
+.my-services, .about-me, .my-work, .projects, .contact {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Floating Shapes */
+.my-services::before,
+.about-me::before,
+.my-work::before,
+.projects::before,
+.contact::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: 
+        radial-gradient(circle at 10% 10%, rgba(var(--clr-primary), 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 90% 90%, rgba(var(--clr-secondary), 0.05) 0%, transparent 50%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Animated Corner Accents */
+.my-services::after,
+.about-me::after,
+.my-work::after,
+.projects::after,
+.contact::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 2px solid var(--clr-accent);
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.my-services::after {
+    top: -75px;
+    right: -75px;
+    border-radius: 0 0 0 100%;
+    animation: rotateTopRight 20s linear infinite;
+}
+
+.about-me::after {
+    bottom: -75px;
+    left: -75px;
+    border-radius: 0 100% 0 0;
+    animation: rotateBottomLeft 20s linear infinite;
+}
+
+.my-work::after {
+    top: -75px;
+    left: -75px;
+    border-radius: 0 0 100% 0;
+    animation: rotateTopLeft 20s linear infinite;
+}
+
+.projects::after {
+    bottom: -75px;
+    right: -75px;
+    border-radius: 100% 0 0 0;
+    animation: rotateBottomRight 20s linear infinite;
+}
+
+.contact::after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    animation: pulseAndRotate 10s ease-in-out infinite;
+}
+
+/* Floating Bubbles */
+.section-bubbles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.bubble {
+    position: absolute;
+    background: radial-gradient(circle at center, 
+        rgba(var(--clr-primary), 0.1),
+        rgba(var(--clr-secondary), 0.05));
+    border-radius: 50%;
+    animation: float 15s ease-in-out infinite;
+}
+
+.my-services .bubble:nth-child(1) {
+    width: 100px;
+    height: 100px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.my-services .bubble:nth-child(2) {
+    width: 60px;
+    height: 60px;
+    top: 60%;
+    right: 20%;
+    animation-delay: -5s;
+}
+
+.about-me .bubble:nth-child(1) {
+    width: 80px;
+    height: 80px;
+    bottom: 30%;
+    right: 15%;
+    animation-delay: -2s;
+}
+
+.about-me .bubble:nth-child(2) {
+    width: 40px;
+    height: 40px;
+    top: 40%;
+    left: 25%;
+    animation-delay: -7s;
+}
+
+/* Decorative Lines */
+.decorative-lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.1;
+}
+
+.decorative-lines::before,
+.decorative-lines::after {
+    content: '';
+    position: absolute;
+    background: linear-gradient(90deg, 
+        transparent,
+        var(--clr-primary),
+        transparent);
+    height: 1px;
+}
+
+.decorative-lines::before {
+    width: 50%;
+    top: 20%;
+    left: 0;
+    animation: slideRight 8s ease-in-out infinite;
+}
+
+.decorative-lines::after {
+    width: 70%;
+    bottom: 30%;
+    right: 0;
+    animation: slideLeft 8s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes rotateTopRight {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes rotateBottomLeft {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+@keyframes rotateTopLeft {
+    from { transform: rotate(-45deg); }
+    to { transform: rotate(315deg); }
+}
+
+@keyframes rotateBottomRight {
+    from { transform: rotate(45deg); }
+    to { transform: rotate(405deg); }
+}
+
+@keyframes pulseAndRotate {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        opacity: 0.2;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2) rotate(180deg);
+        opacity: 0.3;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-20px) scale(1.1);
+    }
+}
+
+@keyframes slideRight {
+    0%, 100% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(100%);
+        opacity: 0.5;
+    }
+}
+
+@keyframes slideLeft {
+    0%, 100% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(-100%);
+        opacity: 0.5;
+    }
+}
+
+/* Enhanced Section Decorations */
+.section-decoration {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Glowing Dots */
+.glowing-dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.glowing-dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--clr-accent);
+    border-radius: 50%;
+    filter: blur(1px);
+    opacity: 0.5;
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+.my-services .glowing-dot:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+.my-services .glowing-dot:nth-child(2) { top: 70%; right: 15%; animation-delay: -1s; }
+.my-services .glowing-dot:nth-child(3) { top: 40%; left: 80%; animation-delay: -2s; }
+
+.about-me .glowing-dot:nth-child(1) { top: 30%; right: 20%; animation-delay: -0.5s; }
+.about-me .glowing-dot:nth-child(2) { bottom: 20%; left: 30%; animation-delay: -1.5s; }
+.about-me .glowing-dot:nth-child(3) { top: 60%; right: 40%; animation-delay: -2.5s; }
+
+/* Curved Lines */
+.curved-line {
+    position: absolute;
+    border: none;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: var(--clr-primary);
+    opacity: 0.2;
+    animation: rotateCurve 20s linear infinite;
+}
+
+.my-services .curved-line:nth-child(1) {
+    top: -75px;
+    left: -75px;
+    animation-direction: reverse;
+}
+
+.about-me .curved-line:nth-child(1) {
+    bottom: -75px;
+    right: -75px;
+}
+
+/* Floating Shapes */
+.floating-shape {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--clr-secondary);
+    opacity: 0.2;
+    animation: floatShape 8s ease-in-out infinite;
+}
+
+.floating-shape.diamond {
+    transform: rotate(45deg);
+}
+
+.floating-shape.triangle {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background: var(--clr-primary);
+}
+
+.my-services .floating-shape:nth-child(1) {
+    top: 30%;
+    right: 10%;
+    animation-delay: -2s;
+}
+
+.about-me .floating-shape:nth-child(1) {
+    bottom: 20%;
+    left: 15%;
+    animation-delay: -1s;
+}
+
+/* Gradient Mesh */
+.gradient-mesh {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 107, 107, 0.1), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(78, 205, 196, 0.1), transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(69, 183, 209, 0.1), transparent 50%);
+    opacity: 0.3;
+    mix-blend-mode: screen;
+    transition: all 0.5s ease;
+}
+
+.section:hover .gradient-mesh {
+    opacity: 0.5;
+    background-size: 120% 120%;
+}
+
+/* New Animations */
+@keyframes glowPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.8;
+    }
+}
+
+@keyframes rotateCurve {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes floatShape {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
+
+@keyframes meshFloat {
+    0% { background-position: 0 0; }
+    100% { background-position: 30px 30px; }
+}
+
+/* Section-specific enhancements */
+.my-services .section-decoration::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, 
+        rgba(var(--clr-primary), 0.1) 0%,
+        transparent 70%);
+    top: -100px;
+    right: -100px;
+    animation: rotatePulse 15s linear infinite;
+}
+
+.about-me .section-decoration::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, 
+        rgba(var(--clr-secondary), 0.1) 0%,
+        transparent 70%);
+    bottom: -75px;
+    left: -75px;
+    animation: rotatePulse 15s linear infinite reverse;
+}
+
+@keyframes rotatePulse {
+    0% {
+        transform: rotate(0deg) scale(1);
+        opacity: 0.1;
+    }
+    50% {
+        transform: rotate(180deg) scale(1.2);
+        opacity: 0.2;
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+        opacity: 0.1;
+    }
+}
+
+/* Ensure content stays above decorations */
+.section__title,
+.section__subtitle,
+.services,
+.about-grid,
+.work-grid,
+.projects-grid,
+.contact-form {
+    position: relative;
+    z-index: 2;
+}
+
+/* Sparkles Effect */
+.sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--clr-accent);
+    animation: sparkle 4s ease-in-out infinite;
+    opacity: 0;
+}
+
+.my-services .sparkle:nth-child(1) { top: 25%; left: 15%; animation-delay: 0s; }
+.my-services .sparkle:nth-child(2) { top: 45%; right: 25%; animation-delay: -1s; }
+.my-services .sparkle:nth-child(3) { bottom: 30%; left: 35%; animation-delay: -2s; }
+
+.about-me .sparkle:nth-child(1) { top: 35%; right: 15%; animation-delay: -0.5s; }
+.about-me .sparkle:nth-child(2) { bottom: 25%; left: 25%; animation-delay: -1.5s; }
+.about-me .sparkle:nth-child(3) { top: 55%; left: 45%; animation-delay: -2.5s; }
+
+.projects .sparkle:nth-child(1) { top: 20%; right: 30%; animation-delay: -0.7s; }
+.projects .sparkle:nth-child(2) { bottom: 35%; left: 20%; animation-delay: -1.7s; }
+.projects .sparkle:nth-child(3) { top: 45%; right: 15%; animation-delay: -2.7s; }
+
+/* Corner Decorations */
+.corner-decoration {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    pointer-events: none;
+}
+
+.corner-decoration::before,
+.corner-decoration::after {
+    content: '';
+    position: absolute;
+    background: var(--clr-primary);
+    opacity: 0.2;
+}
+
+.corner-decoration::before {
+    width: 2px;
+    height: 100%;
+}
+
+.corner-decoration::after {
+    width: 100%;
+    height: 2px;
+}
+
+.corner-decoration--top-left {
+    top: 0;
+    left: 0;
+}
+
+.corner-decoration--top-right {
+    top: 0;
+    right: 0;
+    transform: rotate(90deg);
+}
+
+.corner-decoration--bottom-left {
+    bottom: 0;
+    left: 0;
+    transform: rotate(-90deg);
+}
+
+.corner-decoration--bottom-right {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+}
+
+/* Wavy Border Effect */
+.wavy-border {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.wavy-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        var(--clr-primary) 10px,
+        var(--clr-primary) 11px
+    );
+    opacity: 0.1;
+    animation: waveBorder 20s linear infinite;
+}
+
+/* Enhanced Background Patterns */
+.bg-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 50% 50%, 
+            var(--clr-primary) 1px, 
+            transparent 1px),
+        radial-gradient(circle at 0% 0%, 
+            var(--clr-secondary) 1px, 
+            transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.05;
+    animation: patternFloat 30s linear infinite;
+}
+
+/* New Animations */
+@keyframes sparkle {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1) rotate(180deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(0) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes waveBorder {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes patternFloat {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 20px 20px;
+    }
+}
+
+/* Section Hover Effects */
+.my-services:hover .sparkle,
+.about-me:hover .sparkle,
+.projects:hover .sparkle {
+    animation-duration: 2s;
+}
+
+.my-services:hover .corner-decoration::before,
+.my-services:hover .corner-decoration::after,
+.about-me:hover .corner-decoration::before,
+.about-me:hover .corner-decoration::after,
+.projects:hover .corner-decoration::before,
+.projects:hover .corner-decoration::after {
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+}
+
+.my-services:hover .wavy-border::before,
+.about-me:hover .wavy-border::before,
+.projects:hover .wavy-border::before {
+    animation-duration: 15s;
+}
+
+/* Ensure smooth transitions */
+.my-services,
+.about-me,
+.projects,
+.contact {
+    transition: transform 0.3s ease;
+}
+
+.my-services:hover,
+.about-me:hover,
+.projects:hover,
+.contact:hover {
+    transform: translateY(-5px);
+}
+
+/* New Decorative Elements */
+.section-decorations {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+/* Rainbow Orbs */
+.rainbow-orb {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96c93d);
+    filter: blur(20px);
+    opacity: 0.4;
+    animation: floatOrb 15s ease-in-out infinite;
+    transition: all 0.5s ease;
+}
+
+.section:hover .rainbow-orb {
+    transform: scale(1.2);
+    opacity: 0.6;
+}
+
+/* Geometric Patterns */
+.geo-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(30deg, var(--clr-primary) 12%, transparent 12.5%, transparent 87%, var(--clr-primary) 87.5%, var(--clr-primary)),
+        linear-gradient(150deg, var(--clr-primary) 12%, transparent 12.5%, transparent 87%, var(--clr-primary) 87.5%, var(--clr-primary)),
+        linear-gradient(30deg, var(--clr-primary) 12%, transparent 12.5%, transparent 87%, var(--clr-primary) 87.5%, var(--clr-primary)),
+        linear-gradient(150deg, var(--clr-primary) 12%, transparent 12.5%, transparent 87%, var(--clr-primary) 87.5%, var(--clr-primary)),
+        linear-gradient(60deg, var(--clr-secondary) 25%, transparent 25.5%, transparent 75%, var(--clr-secondary) 75%, var(--clr-secondary));
+    background-size: 80px 140px;
+    background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0;
+    opacity: 0.1;
+    transition: all 0.5s ease;
+}
+
+.section:hover .geo-pattern {
+    opacity: 0.15;
+    background-size: 100px 175px;
+}
+
+/* Neon Lines */
+.neon-lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.neon-line {
+    position: absolute;
+    background: linear-gradient(90deg, transparent, var(--clr-primary), transparent);
+    height: 2px;
+    width: 100%;
+    opacity: 0;
+    transform-origin: left;
+    animation: neonPulse 3s ease-in-out infinite;
+}
+
+.section:hover .neon-line {
+    opacity: 0.5;
+}
+
+/* Prismatic Corners */
+.prismatic-corner {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    opacity: 0.3;
+    transition: all 0.4s ease;
+}
+
+.prismatic-corner::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(from 0deg, #ff6b6b, #4ecdc4, #45b7d1, #96c93d, #ff6b6b);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    filter: blur(5px);
+}
+
+.section:hover .prismatic-corner {
+    opacity: 0.6;
+    transform: scale(1.2) rotate(15deg);
+}
+
+/* Floating Particles */
+.particle-group {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.floating-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--clr-primary);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: floatParticle 8s ease-in-out infinite;
+}
+
+.section:hover .floating-particle {
+    animation-duration: 4s;
+    opacity: 0.5;
+}
+
+/* Animations */
+@keyframes neonPulse {
+    0%, 100% { transform: scaleX(0.3); opacity: 0.2; }
+    50% { transform: scaleX(1); opacity: 0.5; }
+}
+
+@keyframes floatParticle {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(50px, -30px) rotate(90deg); }
+    50% { transform: translate(100px, 0) rotate(180deg); }
+    75% { transform: translate(50px, 30px) rotate(270deg); }
+}
+
+/* Color Transitions */
+.color-transition {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    filter: blur(50px);
+    opacity: 0.2;
+    mix-blend-mode: screen;
+    animation: colorShift 10s ease-in-out infinite;
+}
+
+@keyframes colorShift {
+    0%, 100% { background: linear-gradient(45deg, #ff6b6b, #4ecdc4); }
+    33% { background: linear-gradient(45deg, #4ecdc4, #45b7d1); }
+    66% { background: linear-gradient(45deg, #45b7d1, #96c93d); }
+}
+
+/* Apply to sections */
+.my-services,
+.about-me,
+.my-work,
+.projects,
+.contact {
+    position: relative;
+}
+
+.my-services .section-decorations .rainbow-orb:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+.my-services .section-decorations .rainbow-orb:nth-child(2) { bottom: 30%; right: 15%; animation-delay: -5s; }
+
+.about-me .section-decorations .neon-line:nth-child(1) { top: 30%; animation-delay: -1s; }
+.about-me .section-decorations .neon-line:nth-child(2) { bottom: 40%; animation-delay: -3s; }
+
+.my-work .section-decorations .prismatic-corner:nth-child(1) { top: 0; left: 0; }
+.my-work .section-decorations .prismatic-corner:nth-child(2) { bottom: 0; right: 0; transform: rotate(180deg); }
+
+.projects .section-decorations .floating-particle:nth-child(1) { top: 20%; left: 20%; animation-delay: -2s; }
+.projects .section-decorations .floating-particle:nth-child(2) { top: 60%; right: 30%; animation-delay: -4s; }
+.projects .section-decorations .floating-particle:nth-child(3) { bottom: 30%; left: 40%; animation-delay: -6s; }
+
+.contact .section-decorations .color-transition:nth-child(1) { top: 20%; left: 10%; animation-delay: -3s; }
+.contact .section-decorations .color-transition:nth-child(2) { bottom: 20%; right: 10%; animation-delay: -6s; }
+
+/* Additional Decorative Elements */
+/* Crystal Shards */
+.crystal-shard {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    backdrop-filter: blur(5px);
+    opacity: 0.3;
+    transition: all 0.5s ease;
+    animation: rotateShard 10s linear infinite;
+}
+
+.section:hover .crystal-shard {
+    opacity: 0.5;
+    transform: scale(1.2) rotate(45deg);
+    filter: hue-rotate(90deg);
+}
+
+/* Glowing Rings */
+.glowing-ring {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
+/* Liquid Bubbles */
+.liquid-bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%,
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.1) 30%,
+        rgba(255, 255, 255, 0.05) 60%,
+        transparent 100%
+    );
+    backdrop-filter: blur(5px);
+    opacity: 0.3;
+    animation: bubbleFloat 8s ease-in-out infinite;
+}
+
+.section:hover .liquid-bubble {
+    animation-duration: 4s;
+    opacity: 0.5;
+    filter: hue-rotate(90deg);
+}
+
+/* Glitter Effect */
+.glitter {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: glitterSparkle 4s ease-in-out infinite;
+}
+
+.section:hover .glitter {
+    animation-duration: 2s;
+}
+
+/* Energy Field */
+.energy-field {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: conic-gradient(
+        from 0deg,
+        transparent,
+        var(--clr-primary),
+        var(--clr-secondary),
+        transparent
+    );
+    opacity: 0.1;
+    filter: blur(20px);
+    animation: energyPulse 6s ease-in-out infinite;
+}
+
+.section:hover .energy-field {
+    animation-duration: 3s;
+    opacity: 0.2;
+}
+
+/* New Animations */
+@keyframes bubbleFloat {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translate(20px, -20px) scale(1.1);
+        opacity: 0.4;
+    }
+}
+
+@keyframes glitterSparkle {
+    0%, 100% {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1) rotate(180deg);
+        opacity: 0.8;
+    }
+}
+
+@keyframes energyPulse {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.1;
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 0.2;
+    }
+}
+
+/* Apply to sections */
+.my-services .section-decorations .liquid-bubble:nth-child(1) { 
+    top: 25%; 
+    left: 15%; 
+    width: 80px; 
+    height: 80px; 
+}
+.my-services .section-decorations .liquid-bubble:nth-child(2) { 
+    bottom: 35%; 
+    right: 20%; 
+    width: 60px; 
+    height: 60px; 
+    animation-delay: -4s; 
+}
+
+.about-me .section-decorations .glitter:nth-child(1) { top: 30%; left: 20%; animation-delay: -1s; }
+.about-me .section-decorations .glitter:nth-child(2) { top: 50%; right: 30%; animation-delay: -2s; }
+.about-me .section-decorations .glitter:nth-child(3) { bottom: 25%; left: 40%; animation-delay: -3s; }
+
+.my-work .section-decorations .energy-field:nth-child(1) { top: 20%; right: 10%; }
+.my-work .section-decorations .energy-field:nth-child(2) { bottom: 30%; left: 15%; animation-delay: -3s; }
+
+/* Interactive Hover States */
+.section:hover .section-decorations {
+    z-index: 1;
+}
+
+.section:hover .liquid-bubble,
+.section:hover .glitter,
+.section:hover .energy-field {
+    transition: all 0.3s ease;
+}
+
+/* Enhanced Light Mode Styles */
+.light-mode .liquid-bubble {
+    background: radial-gradient(circle at 30% 30%,
+        rgba(255, 107, 107, 0.4),
+        rgba(255, 107, 107, 0.1) 30%,
+        rgba(255, 107, 107, 0.05) 60%,
+        transparent 100%
+    );
+}
+
+.light-mode .glitter {
+    background: var(--clr-primary);
+}
+
+.light-mode .energy-field {
+    background: conic-gradient(
+        from 0deg,
+        transparent,
+        rgba(255, 107, 107, 0.5),
+        rgba(78, 205, 196, 0.5),
+        transparent
+    );
+}
+
+/* Enhanced Section Patterns */
+.section-pattern {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    opacity: 0.1;
+    transition: opacity 0.3s ease;
+}
+
+/* Hexagonal Grid Pattern */
+.pattern-hexagons {
+    background-image: 
+        linear-gradient(60deg, var(--clr-primary) 1px, transparent 1px),
+        linear-gradient(-60deg, var(--clr-primary) 1px, transparent 1px),
+        linear-gradient(60deg, transparent 3px, var(--clr-background) 3px),
+        linear-gradient(-60deg, transparent 3px, var(--clr-background) 3px);
+    background-size: 40px 70px;
+    animation: patternShift 20s linear infinite;
+}
+
+/* Circuit Board Pattern */
+.pattern-circuit {
+    background-image: 
+        radial-gradient(circle at 50% 50%, var(--clr-primary) 1px, transparent 1px),
+        linear-gradient(90deg, var(--clr-primary) 1px, transparent 1px),
+        linear-gradient(var(--clr-primary) 1px, transparent 1px);
+    background-size: 20px 20px, 60px 60px, 60px 60px;
+    animation: circuitGlow 8s ease-in-out infinite;
+}
+
+/* Diagonal Stripes Pattern */
+.pattern-stripes {
+    background: repeating-linear-gradient(
+        45deg,
+        var(--clr-primary) 0px,
+        var(--clr-primary) 1px,
+        transparent 1px,
+        transparent 30px
+    );
+    animation: stripeFlow 15s linear infinite;
+}
+
+/* Dot Matrix Pattern */
+.pattern-dots {
+    background-image: 
+        radial-gradient(var(--clr-primary) 1px, transparent 1px),
+        radial-gradient(var(--clr-secondary) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+    animation: dotPulse 10s ease-in-out infinite;
+}
+
+/* Wave Pattern */
+.pattern-waves {
+    background: 
+        linear-gradient(45deg, transparent 48%, var(--clr-primary) 49%, var(--clr-primary) 51%, transparent 52%) 50px 50px,
+        linear-gradient(-45deg, transparent 48%, var(--clr-secondary) 49%, var(--clr-secondary) 51%, transparent 52%) 50px 50px;
+    background-size: 100px 100px;
+    animation: waveFlow 10s linear infinite;
+}
+
+/* Apply patterns to sections */
